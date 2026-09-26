@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>¡Feliz Cumpleaños, Jackie!</title>
-<meta name="description" content="Feliz cumpleaños a Jacqueline Carrillo, fundadora de Elegancia Choreography Co.">
+<title>Happy Birthday, Jackie!</title>
+<meta name="description" content="Happy birthday to Jacqueline Carrillo, founder of Elegancia Choreography Co.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#8C4259">
-<meta property="og:title" content="¡Feliz Cumpleaños, Jackie! 🌺">
-<meta property="og:description" content="Recién llegada de Cancún y lista para su mejor año.">
+<meta property="og:title" content="Happy Birthday, Jackie! 🌺">
+<meta property="og:description" content="Fresh back from Cancún and ready for her best year yet.">
 <meta property="og:image" content="https://rolz-royz.github.io/jackie-birthday/img/corona-arriba.jpg">
 <meta property="og:url" content="https://rolz-royz.github.io/jackie-birthday/">
 <meta property="og:type" content="website">
@@ -464,7 +464,7 @@ footer small { display: block; margin-top: 12px; font-family: var(--sans); font-
 </head>
 <body class="locked">
 
-<button class="lang" id="langBtn" aria-label="Switch language">EN</button>
+<button class="lang" id="langBtn" aria-label="Cambiar a español">ES</button>
 
 <!-- ============ BOARDING PASS INTRO ============ -->
 <div id="intro" role="dialog" aria-label="Boarding pass">
@@ -686,7 +686,7 @@ footer small { display: block; margin-top: 12px; font-family: var(--sans); font-
 <footer>
   <img class="wm" src="img/logo-wordmark.png" alt="Elegancia Choreography Co.">
   <p data-en="Where passion meets tradition, and today, where we celebrate you.">Donde la pasión se encuentra con la tradición, y hoy, donde te celebramos a ti.</p>
-  <small>Feliz cumpleaños · Jackie · 2026</small>
+  <small data-en="Happy birthday · Jackie · 2026">Feliz cumpleaños · Jackie · 2026</small>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo">
@@ -766,6 +766,7 @@ footer small { display: block; margin-top: 12px; font-family: var(--sans); font-
     document.documentElement.lang = l;
     i18nEls.forEach(el => el.innerHTML = el.dataset[l]);
     langBtn.textContent = l === 'es' ? 'EN' : 'ES';
+    langBtn.setAttribute('aria-label', l === 'es' ? 'Switch to English' : 'Cambiar a español');
     buildTicker(); buildGallery();
   }
   langBtn.addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es'));
@@ -807,7 +808,7 @@ footer small { display: block; margin-top: 12px; font-family: var(--sans); font-
   lb.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
   lb.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) show(cur + (d < 0 ? 1 : -1)); });
 
-  buildTicker(); buildGallery();
+  setLang('en');
 
   /* ---------- reveal + counter ---------- */
   const io = new IntersectionObserver(entries => {
